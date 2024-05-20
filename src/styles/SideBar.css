@@ -1,0 +1,55 @@
+.profile-photo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 70px;
+  color: white;
+}
+.dropdown {
+ 
+  background-color: white;
+  position: absolute;
+  top: 100%; /* Start from the bottom of the profile photo div */
+  left: 0;
+  margin-top: 2px;
+  width: 200px;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 10px;
+  border-radius: 4px;
+}
+.profile-photo img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  background-color: aqua;
+  border-radius: 50%;
+  text-align: center;
+  
+}
+.profile-photo h3 {
+  font-size: medium;
+  font-weight: 500;
+}
+
+
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 200px;
+}
+.menu-button {
+    padding: 10px 24px;
+     border-radius: 16px;
+    background: rgb(255, 255, 255);
+    font-size: medium;
+    font-weight: 500;
+    text-align: left;
+
+}

@@ -1,0 +1,25 @@
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+    
+}
+
+.sidebar{
+   
+    width: 25%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1c232e;
+   
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.main-container{
+    background-color: beige;
+    width: 100%;
+}
+
