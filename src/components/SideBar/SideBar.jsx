@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../../styles/SideBar.css'
+import { Link } from 'react-router-dom';
 const SideBar = () => {
     const [isHovered, setIsHovered] = useState(false)
     return (
@@ -15,9 +16,9 @@ const SideBar = () => {
                 )}
             </div>
             <div className='menu-container'>
-                <button className='menu-button'>All Tasks</button>
-                <button className='menu-button'>Uncompleted Tasks</button>
-                <button className='menu-button'>Completed Tasks</button>
+                <Link to={'/'} className='menu-button'>All Tasks</Link>
+                <Link to={"/uncompleted"} className='menu-button'>Uncompleted Tasks</Link>
+                <Link to={'/completed'} className='menu-button'>Completed Tasks</Link>
                 
             </div>
         </div>
