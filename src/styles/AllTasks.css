@@ -1,7 +1,15 @@
 .all-task-section {
-    margin: 1rem 0;
+  
 }
 .all-task-section h2 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-container{
+    display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
+  gap: 16px; /* Adjusts the spacing between grid items */
+  padding: 20px;
 }

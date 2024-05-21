@@ -1,3 +1,15 @@
+.sidebar-section{
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px; /* Adjust width as needed */
+  height: 100vh; 
+  padding: 20px;
+ 
+}
+
 .profile-photo {
   position: relative;
   display: flex;
@@ -42,7 +54,6 @@
     flex-direction: column;
     gap: 10px;
     justify-content: center;
-    margin-top: 200px;
 }
 .menu-button {
     padding: 10px 24px;
@@ -52,4 +63,19 @@
     font-weight: 500;
     text-align: left;
 
+}
+.login-btn{
+  padding: 5px 10px;
+  
+}
+
+.login-link{
+  font-size: 18px;
+   color: white;
+  font-weight: 400;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+  
 }
