@@ -23,6 +23,11 @@ const AllTasks = () => {
             .catch(err => console.log(err))
     }, [axios])
 
+    const handleRemaining = (id)=>{
+        const remaining = tasks?.filter(task=> task._id !== id);
+        setTasks(remaining);
+    }
+
     return (
         <div className="all-task-section">
             <h2>All Tasks</h2>
@@ -52,37 +57,12 @@ const AllTasks = () => {
 
             >
 
-
-                <SwiperSlide >
-                    <TaskCard></TaskCard>
-                </SwiperSlide>
                 {
                     tasks?.map(task => 
                     <SwiperSlide key={task._id}>
-                        <TaskCard task= {task}></TaskCard>
+                        <TaskCard task= {task} handleRemaining={handleRemaining}></TaskCard>
                     </SwiperSlide>)
                 }
-
-
-
-              
-
-                <SwiperSlide>
-                    <img src="" alt="image missing" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="" alt="image missing" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="" alt="image missing" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="" alt="image missing" />
-                </SwiperSlide>
-
-
-
-
             </Swiper>
         </div>
     );
