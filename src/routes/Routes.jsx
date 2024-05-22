@@ -4,6 +4,7 @@ import AllTasks from "../pages/AllTasks/AllTasks";
 import Uncompleted from "../pages/Uncompleted/Uncompleted";
 import Login from "../pages/Login/Login";
 import SignUp from "../pages/SignUp/SignUp";
+import TaskDetails from "../pages/TaskDetails/TaskDetails";
 
 const routes = createBrowserRouter([
     {
@@ -17,6 +18,10 @@ const routes = createBrowserRouter([
             {
                 path: "/uncompleted",
                 element: <Uncompleted></Uncompleted>
+            },
+            {
+                path: '/api/tasks/:id',
+                element: <TaskDetails></TaskDetails>
             }
         ]
     },

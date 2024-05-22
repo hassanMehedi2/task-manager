@@ -90,7 +90,7 @@
 .create-btn {
    
 }
-.create-btn button {
+.create-btn input {
     background-color: rgb(0, 255, 170);
     border-radius: 8px;
     padding: 5px 16px ;

@@ -4,15 +4,23 @@
     gap: 8px;
     max-width: 300px;
     padding: 16px;
-    background-color: #faebd7;
+    background-color: #d0f0fd; 
     padding-top: 30px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     
+}
+
+.task-card.uncompleted {
+    background-color: #ffcccc; 
 }
 
 .task-card h4{
     font-size: 18px;
     font-weight: 600;
+}
+.task-card .description{
+    height: 70px;
+    overflow: hidden;
 }
 .task-date{
     font-size: 16px;
@@ -20,8 +28,20 @@
 }
 .button-container{
     display: flex;
-    justify-content: end;
-    gap: 18px;
+    justify-content: space-between;
     font-size: 22px;
     margin: 12px 5px;
+}
+
+.button-container .details-btn{
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 12px;
+    background-color: rgb(28, 255, 179);
+    border-radius: 12px;
+}
+
+.btn-icon{
+    display: flex;
+    gap: 16px;
 }
