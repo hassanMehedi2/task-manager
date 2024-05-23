@@ -1,17 +1,14 @@
-.sidebar-section{
-  
+.sidebar-section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 250px; /* Adjust width as needed */
-  height: 100vh; 
+  width: 250px;
+  height: 100vh;
   padding: 20px;
- 
 }
 
-.profile-photo {
-  position: relative;
+.profile-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,63 +16,92 @@
   margin-top: 70px;
   color: white;
 }
-.dropdown {
- 
-  background-color: white;
-  position: absolute;
-  top: 100%; /* Start from the bottom of the profile photo div */
-  left: 0;
-  margin-top: 2px;
-  width: 200px;
-  background-color: white;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  padding: 10px;
-  border-radius: 4px;
-}
-.profile-photo img {
+
+.profile-section img {
   width: 70px;
   height: 70px;
   object-fit: cover;
   background-color: aqua;
   border-radius: 50%;
   text-align: center;
-  
 }
-.profile-photo h3 {
+
+.user-name {
   font-size: medium;
   font-weight: 500;
 }
 
-
 .menu-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: start;
 }
+
 .menu-button {
-    padding: 10px 24px;
-     border-radius: 16px;
-    background: rgb(255, 255, 255);
-    font-size: medium;
-    font-weight: 500;
-    text-align: left;
-
+  padding: 10px 24px;
+  border-radius: 16px;
+  background: rgb(255, 255, 255);
+  font-size: medium;
+  font-weight: 500;
+  text-align: left;
+  width: 100%;
 }
-.login-btn{
+
+.login-btn {
   padding: 5px 10px;
-  
 }
 
-.login-link{
+.login-link {
   font-size: 18px;
-   color: white;
+  color: white;
   font-weight: 400;
   display: flex;
   gap: 4px;
   align-items: center;
   justify-content: center;
-  
+}
+
+.dropdown-menuu {
+  display: none; /* Hide by default */
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 767px) {
+  .sidebar-section {
+    flex-direction: row;
+    width: 100vw;
+    height: 90px;
+    padding: 10px;
+  }
+
+  .profile-section {
+    margin: 0;
+    gap: 10px;
+  }
+  .user-name {
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .profile-section img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .dropdown-menuu {
+    display: block; 
+  }
+
+  .menu-container {
+    display: none; 
+  }
+
+  .login-btn {
+    padding: 5px 5px;
+  }
+
+  .login-link {
+    font-size: 16px;
+  }
 }

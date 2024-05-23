@@ -42,7 +42,7 @@ const TaskCard = ({ task, handleRemaining }) => {
 
     const navigate = useNavigate();
     const axios = useAxios();
-    if (!updatedTask) return null;
+    
     const { _id, title, description, date, status } = updatedTask;
 
     const handleDelete = () => {
@@ -109,15 +109,16 @@ const TaskCard = ({ task, handleRemaining }) => {
 
     }
     return (
-        <div className={`task-card ${status === 'uncompleted' ? 'uncompleted' : ''}`}>
-            <h4 >{title} </h4>
+        <div  className={`task-card ${status === 'uncompleted' ? 'uncompleted' : ''}`}>
+           <Link to={`/tasks/${_id}`}>
+           <h4 >{title} </h4>
             <p className='description'>
                 {description.slice(0, 60)}
                 {description.length > 60 ? '  ...' : null}</p>
             <p className='task-date'>date : {date}</p>
-            <p>status : {status}</p>
+            <p className='status'>status : {status}</p>
             <div className='button-container'>
-                <Link to={`api/tasks/${_id}`} className='details-btn'>View Details</Link>
+                <Link to={`/tasks/${_id}`} className='details-btn'>View Details</Link>
                 <div className='btn-icon'>
                     <button onClick={handleOpen}><LuFolderEdit /></button>
                     <button onClick={handleDelete}><MdDelete /></button>
@@ -160,6 +161,7 @@ const TaskCard = ({ task, handleRemaining }) => {
                     </form>
                 </Box>
             </Modal>
+           </Link>
         </div>
     );
 };

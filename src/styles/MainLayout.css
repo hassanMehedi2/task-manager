@@ -13,6 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 1rem;
     background-color: #1c232e;
    
@@ -30,3 +31,31 @@
     margin: 1rem 0;
 }
 
+/* Adjustments for tablet screens */
+@media (min-width: 768px) {
+    .sidebar {
+        width: 20%; /* Sidebar takes 20% of the screen width */
+    }
+    .main-container {
+        width: 80%; /* Main content takes 80% of the screen width */
+    }
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 767px) {
+    .main-layout{
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: 90px;
+     
+        
+    }
+    .main-container {
+        width: 100%; 
+        padding: 16px; 
+        height: max-content;
+        min-height: 100vh;
+    }
+}

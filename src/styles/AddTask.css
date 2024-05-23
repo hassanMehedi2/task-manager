@@ -1,99 +1,100 @@
 .add-task-container {
-    padding: 0px 0;
-  
+  padding: 0px 0;
 }
-.add-task-container h2{
-    font-size: 24px;
-    font-weight: 600;
-    margin: 1rem 0;
-}
-
-
-.add-task-card{
-    height: 140px;
-    width: 220px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(239, 239, 239);
-    border-radius: 10px;
+.add-task-container h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 1rem 0;
 }
 
-.add-task-card h4{
-    font-size: medium;
-    font-weight: 400;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
+.add-task-card {
+  height: 140px;
+  width: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(239, 239, 239);
+  border-radius: 10px;
 }
 
-#my_modal_5 {
-    padding: 20px;
-    border-radius: 12px; 
-    width: 400px;
-    background-color: aliceblue;
+.add-task-card h4 {
+  font-size: medium;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
-.modal-box h2{
-   font-size: 18px;
-   text-align: center;
-   margin: 20px 0px;
-   font-weight: 500;
-   
-
+.modal-add {
+  border-radius: 12px;
+  width: 400px;
 }
 
 .form-control {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 12px 0;
 }
 
- .label-text {
-    font-size: 16px ;
-    font-weight: 400;
+.label-text {
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .form-control input {
-    height: 2rem;
-    padding: 5px;
-    border-radius: 5px;
-    font-weight: 500;
+  height: 2rem;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 500;
 }
-.form-control textarea{
-    height: 6rem;
-    font-weight: normal;
-    padding: 5px;
+.form-control textarea {
+  height: 6rem;
+  font-weight: normal;
+  padding: 5px;
 }
 
-.form-control input[name= "date"] {
-    font-weight: normal;
+.form-control input[name="date"] {
+  font-weight: normal;
 }
 .modal-action {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 28px;
-    margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 28px;
+  margin-top: 24px;
 }
 
 .modal-action button {
-    padding: 5px 10px ;
-    background-color: red;
-    color: white;
-    border-radius: 8px;
+  padding: 5px 10px;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
 }
-.create-btn {
-   
-}
+
 .create-btn input {
-    background-color: rgb(0, 255, 170);
-    border-radius: 8px;
-    padding: 5px 16px ;
-    margin: 12px 0;
- 
+  background-color: rgb(0, 255, 170);
+  border-radius: 8px;
+  padding: 5px 16px;
+  margin: 12px 0;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 767px) {
+  .add-task-card {
+    height: 70px;
+    width: 150px;
+  }
+  .add-task-container h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 6px 0;
+  }
+
+  .modal-add {
+    width: 300px;
+  }
 }

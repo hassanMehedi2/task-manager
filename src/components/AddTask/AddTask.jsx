@@ -9,7 +9,6 @@ import { AuthContext } from '../../provider/AuthProvider';
 //import for modal
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 
@@ -18,7 +17,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+ 
   bgcolor: 'background.paper',
   border: '2px solid #000',
   boxShadow: 24,
@@ -52,7 +51,7 @@ const AddTask = () => {
                 if (data.data.insertedId) {
                     toast.success('Added task Successfully')
                     e.target.reset();
-
+                    window.location.reload();
                 }
             })
             .catch(error => {
@@ -73,12 +72,13 @@ const AddTask = () => {
 
 
                 <Modal
+                
                     open={open}
                     onClose={handleClose}
                     aria-labelledby="modal-modal-title"
                     aria-describedby="modal-modal-description"
                 >
-                    <Box className={"modal-update"} sx={style}>
+                    <Box className={"modal-add"} sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
                             Create Task
                         </Typography>

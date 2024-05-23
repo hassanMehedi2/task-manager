@@ -7,9 +7,21 @@
     margin-bottom: 10px;
 }
 
-.card-container{
-    display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Creates 4 equal columns */
-  gap: 16px; /* Adjusts the spacing between grid items */
-  padding: 20px;
+
+
+/* Adjustments for mobile screens */
+@media (max-width: 767px) {
+
+  .all-task-section h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.tasks-container-mobile{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 10px;
+}
+
+
 }

@@ -7,7 +7,7 @@
     background-color: #d0f0fd; 
     padding-top: 30px;
     margin-bottom: 50px;
-    
+    border-radius: 12px;
 }
 
 .task-card.uncompleted {
@@ -44,4 +44,33 @@
 .btn-icon{
     display: flex;
     gap: 16px;
+}
+
+/* Adjustments for mobile screens */
+@media (max-width: 767px) {
+    .task-card{
+        gap: 4px;
+        padding: 10px;
+        padding-top: 18px;
+        margin-bottom: 10px;
+        
+    }
+    .task-card h4{
+        font-size: 16px;
+    }
+    .task-card .description{
+        display: none;
+        height: 70px;
+        overflow: hidden;
+    }
+    .task-date{
+        font-size: 14px;
+    }
+    .button-container{
+        display: none;
+    }
+    .status{
+        font-size: 14px;
+    }
+    
 }
