@@ -45,7 +45,7 @@ const AddTask = () => {
         const userEmail = user?.email;
         const task = { userEmail, title, description, date, status };
 
-        axios.post('http://localhost:5000/api/tasks', task)
+        axios.post('/api/tasks', task)
             .then(data => {
                 console.log(data.data);
                 if (data.data.insertedId) {
@@ -71,13 +71,15 @@ const AddTask = () => {
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
 
 
-                <Modal
+              { user &&
+                  <Modal
                 
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                >
+                  open={open}
+                  onClose={handleClose}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+              >
+             
                     <Box className={"modal-add"} sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2">
                             Create Task
@@ -112,6 +114,7 @@ const AddTask = () => {
 
                     </Box>
                 </Modal>
+                 }
             </div>
         </div>
     );

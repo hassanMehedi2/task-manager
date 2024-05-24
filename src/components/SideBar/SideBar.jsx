@@ -5,15 +5,22 @@ import { CiLogin } from "react-icons/ci";
 import { AuthContext } from '../../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import DropdownMenu from '../DropdownMenu/DropdownMenu';
+import useAxios from '../../hooks/useAxios';
 const SideBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const navigate = useNavigate();
-
+    const axios = useAxios();
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 console.log('logged out');
                 navigate('/api/users/login')
+                axios.post('/logout', {email:user?.email}, {
+                    withCredentials: true
+                })
+                    .then(res => {
+                        console.log(res.data);
+                    })
                 toast.success("logged out successfully")
             }).catch((error) => {
                 const errorMessage = error.message;
@@ -34,7 +41,7 @@ const SideBar = () => {
         <div className='sidebar-section'>
             <div className='profile-section' >
 
-                <img src={"https://images.pexels.com/photos/697509/pexels-photo-697509.jpeg?cs=srgb&dl=pexels-andrewpersonaltraining-697509.jpg&fm=jpg"} alt="user image" />
+                <img src={"https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"} alt="user image" />
                 {user?.displayName ? <h3 className='user-name'>{sliceBeforeFirstSpace(user?.displayName)}</h3> : <h3 className='user-name'>User</h3>}
 
 

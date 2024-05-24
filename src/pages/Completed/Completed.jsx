@@ -20,7 +20,7 @@ const Completed = () => {
     const axios = useAxios();
     const email = user?.email;
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/tasks?email=${email}`)
+        axios.get(`/api/tasks?email=${email}`)
             .then(data => {
                 console.log(data.data);
                 setTasks(data.data)

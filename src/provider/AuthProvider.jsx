@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import useAxios from "../hooks/useAxios";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -10,6 +11,7 @@ const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading,setLoading] = useState(null);
+    const axios  = useAxios();
 
     const createUser = (email,password)=>{
         setLoading(true)
@@ -34,12 +36,36 @@ useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth , (currentUser) =>{
         setUser(currentUser);
         console.log("user is monitored as " ,currentUser);
-        setLoading(false);
+        setLoading(false); 
+        const userEmail = currentUser?.email || user?.email;
+            const userInfo = { email: userEmail }; 
+        if (currentUser) {
+            // get token and store client
+          
+            axios.post('/api/auth/access-token', userInfo)
+            .then(res => {
+                console.log('token response', res.data);
+            })
+        }
+        else {
+            axios.post('/logout', userInfo, {
+                withCredentials: true
+            })
+                .then(res => {
+                    console.log(res.data);
+                    logOut();
+                })
+        }
+    
     })
+
+    
+    
+
     return ()=>{
         unsubscribe();
     }
-},[])
+},[axios])
 
     const authInfo = {
         user,

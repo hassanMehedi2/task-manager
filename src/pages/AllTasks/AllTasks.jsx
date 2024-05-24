@@ -12,20 +12,22 @@ import useWindowSize from '../../hooks/useWindowSize';
 
 
 const AllTasks = () => {
-    const {user} = useContext(AuthContext);
+    const {user,loading} = useContext(AuthContext);
     const [tasks, setTasks] = useState(null);
-    const axios = useAxios();
+    const axios = useAxios(null);
     const email = user?.email;
     const windowSize = useWindowSize(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/tasks/${email}`)
+        if (user && user.email) {
+        axios.get(`/api/tasks/${email}`)
             .then(data => {
                 console.log(data.data);
                 setTasks(data.data)
             })
             .catch(err => console.log(err))
-    }, [axios,user,email])
+        }
+    }, [axios,user,email,loading])
 
     const handleRemaining = (id)=>{
         const remaining = tasks?.filter(task=> task._id !== id);

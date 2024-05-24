@@ -1,162 +1,171 @@
-.task-details{
-}
-.task-details h2{
-font-size: 22px;
-font-weight: 500;
-text-align: center;
-margin: 30px 0;
-}
-.task-container{
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    padding: 32px;
-    border-radius: 16px;
 
+.task-details h2 {
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  margin: 30px 0;
+}
+.task-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 32px;
+  border-radius: 16px;
 }
 
-.details-section{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    font-size: 16px;
+.details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 16px;
+  width: 60%;
+  overflow: hidden; /* Prevents overflow */
+  box-sizing: border-box;
 }
-.field-title{
-    font-size: 18px;
-    font-weight: 500;
+.field-title {
+  font-size: 18px;
+  font-weight: 500;
 }
-.details-section .task-title {
-    font-size: 24px;
-    font-weight: 500;
+ .taskk-title {
+  font-size: 24px;
+  font-weight: 500;
+  word-wrap: break-word; /* Ensures long words break to prevent overflow */
+  max-width: 100%; 
+}
+.description {
+    word-wrap: break-word; /* Ensures long words break to prevent overflow */
+    max-width: 100%; /* Ensures description does not overflow parent div */
+  }
+
+.date {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 16px;
 }
 
-
-.date{
-    display: flex;
-    align-items: center;
-    align-content: center;
-    gap: 16px;
+.status {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  gap: 16px;
 }
-
-.status{
-    display: flex;
-    align-items: center;
-    align-content: center;
-    gap: 16px;
-}
-.status-text{
-    font-weight: 700;
-    font-size: 18px;
-    color: green;
+.status-text {
+  font-weight: 700;
+  font-size: 18px;
+  color: green;
 }
 
 .status-text.uncompleted {
-    color: red;
+  color: red;
 }
 
-.btn-complete{
-    background-color: greenyellow;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 10px;
+.btn-complete {
+  background-color: greenyellow;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 10px;
 }
 .btn-complete.make-uncompleted {
-    background-color: red;
-    color: white;
+  background-color: red;
+  color: white;
 }
 
-.btn-section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 24px;
+.btn-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
 }
-.btn-icon{
-    display: flex;
-    justify-content: center;
-    gap: 16px;
+.btn-icon {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
 }
 .btn-icon .delete-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: red;
-    padding: 5px 10px;
-    color: white;
-    border-radius: 12px;
-
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: red;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 12px;
 }
 .btn-icon .update-btn {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgb(22, 135, 26);
-    padding: 5px 10px;
-    color: white;
-    border-radius: 12px;
-
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgb(22, 135, 26);
+  padding: 5px 10px;
+  color: white;
+  border-radius: 12px;
 }
 
 .modal-update {
-    border-radius: 12px;
-    width: 400px;
+  border-radius: 12px;
+  width: 400px;
 }
 
-.update-task input{
-    background-color: rgb(0, 255, 170);
-    border-radius: 8px;
-    padding: 5px 16px ;
-    margin: 16px 0;
+.update-task input {
+  background-color: rgb(0, 255, 170);
+  border-radius: 8px;
+  padding: 5px 16px;
+  margin: 16px 0;
 }
-
-
-
+.task-title, .description, .date, .status {
+    width: 100%;
+  }
 /* Adjustments for tablet screens */
-@media (min-width: 768px) {
- 
+@media screen and (min-width: 576px) and (max-width: 769px) 
+{
 }
-
 /* Adjustments for mobile screens */
-@media (max-width: 767px) {
+@media (max-width: 576px) {
+  .task-container {
+    width: 90%;
+    flex-direction: column;
+    padding: 18px;
+    gap: 16px;
+  }
+  .task-details h2 {
+    font-size: 18px;
+    margin: 20px 0;
+  }
 
-    .task-container{
-        width: 90%;
-        flex-direction: column;
-        padding: 18px;
-        gap: 16px;
-    }
-    .task-details h2{
-        font-size: 18px;
-        margin: 20px 0;
-        }
+  .details-section {
+    width: 80%;gap: 10px;
+  }
+  .date,
+  .status {
+    gap: 10px;
+  }
 
-    .details-section , .date , .status{
-        gap: 10px;
-    }
+  .field-title {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .details-section  {
+    width: 80%;
+  }
+  .status-text {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .description  {
+    width: 90vh;
+  }
 
-    .field-title {
-        font-size: 16px;
-        font-weight: 400;
-    }
-    .details-section .task-title , .status-text {
-        font-size: 18px;
-        font-weight: 500;
-    }
+  .btn-section {
+    margin-top: 30px;
+    padding: 0 30px;
+    gap: 24px;
+  }
 
-    .btn-section{
-        margin-top: 30px;
-        padding: 0 30px;
-        gap: 24px;
-    }
-
-    .modal-update {
-        border-radius: 12px;
-        width: 90%;
-    }
-    
-
-    
+  .modal-update {
+    border-radius: 12px;
+    width: 90%;
+  }
 }

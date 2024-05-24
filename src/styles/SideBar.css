@@ -66,8 +66,11 @@
   display: none; /* Hide by default */
 }
 
+  /* Adjustments for tablet screens */
+  @media screen and (min-width: 576px) and (max-width: 769px ) {
+  }
 /* Adjustments for mobile screens */
-@media (max-width: 767px) {
+@media (max-width: 576px) {
   .sidebar-section {
     flex-direction: row;
     width: 100vw;

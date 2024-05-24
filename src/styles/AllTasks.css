@@ -1,16 +1,17 @@
-.all-task-section {
-  
-}
+
 .all-task-section h2 {
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-
+  /* Adjustments for tablet screens */
+  @media screen and (min-width: 576px) and (max-width: 769px ) { 
+ 
+}
 
 /* Adjustments for mobile screens */
-@media (max-width: 767px) {
+@media (max-width: 576px) {
 
   .all-task-section h2 {
     font-size: 18px;

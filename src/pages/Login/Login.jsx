@@ -22,7 +22,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user, " logged in ");
                 console.log({ email: user.email });
-                axios.post('http://localhost:5000/api/auth/access-token', { email: user.email })
+             
 
                 navigate('/');
                 toast.success("Logged in successfully");

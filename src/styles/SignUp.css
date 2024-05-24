@@ -43,7 +43,7 @@
     align-items: center;
     gap: 7px;
   }
-  .login-link {
+  .form-bottom .login-link {
     color: blue;
     text-decoration: underline;
   }
@@ -51,7 +51,7 @@
   
   
   /* Adjustments for tablet screens */
-  @media (min-width: 768px) {
+  @media screen and (min-width: 576px) and (max-width: 769px ) {
    
   .signUp-form {
       
@@ -63,7 +63,7 @@
   }
   
   /* Adjustments for mobile screens */
-  @media (max-width: 767px) {
+  @media (max-width: 576px) {
       .signUp-form {
       
           width: 80%;

@@ -29,8 +29,8 @@ const SignUp = () => {
                     .then(() => {
                         console.log(user, " updated  ");
                         toast.success("Updated successfully")
-                        axios.post('http://localhost:5000/api/auth/access-token',{email:user.email})
                         navigate('/');
+                        window.location.reload();
                     })
                     .catch((error) => {
                         const errorMessage = error.message;
@@ -82,7 +82,7 @@ const SignUp = () => {
                 <div className="form-bottom">
                     <p>or</p>
                     <div className="google-login"><FcGoogle className="=" /><Link>sign up with google</Link></div>
-                    <p>allready have an account <Link to={'/api/users/signup'} className="login-link">Login now</Link></p>
+                    <p>allready have an account <Link to={'/api/users/login'} className="login-link">Login now</Link></p>
                 </div>
             </form>
 

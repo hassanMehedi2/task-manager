@@ -40,18 +40,20 @@ const TaskDetails = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/task/${id}`)
-            .then(res => {
-                console.log(res);
-                setTask(res.data[0]);
-                setUpdatedTask(res.data[0])
-                console.log(task);
-            })
-            .catch(err => console.log(err))
-    }, [axios,updatedTask,id,task])
+       if(id){
+        axios.get(`/api/task/${id}`)
+        .then(res => {
+            console.log(res);
+            setTask(res.data[0]);
+            setUpdatedTask(res.data[0])
+            console.log(task);
+        })
+        .catch(err => console.log(err))
+       }
+    }, [axios,id,updatedTask])
     
     if (!task) return null;
-    const { _id, title, description, date, status } = updatedTask;
+    const { _id, title, description, date, status } = updatedTask  || {};
 
     const handleDelete = () => {
 
@@ -66,7 +68,7 @@ const TaskDetails = () => {
 
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/api/tasks/${_id}`)
+                axios.delete(`/api/tasks/${_id}`)
                     .then(data => {
                         console.log(data);
                       
@@ -91,7 +93,8 @@ const TaskDetails = () => {
         const date = form.date.value;
         const status = task?.status;
         const updatedData = { title, description, date ,status };
-        axios.patch(`http://localhost:5000/api/tasks/${_id}`, updatedData)
+        console.log(_id);
+        axios.patch(`/api/tasks/${_id}`, updatedData)
             .then(data => {
                 handleClose();
                 console.log(data.data);
@@ -117,15 +120,16 @@ const TaskDetails = () => {
             })
     }
     const handleMarkComplete =()=>{
-        let status = updatedTask?.status;
-        if(task.status === "uncompleted"){
-             status = "completed"
+        let NewStatus = updatedTask?.status;
+        let updatedStatus = "";
+        if(NewStatus === "uncompleted"){
+             updatedStatus = "completed"
         }
-        else if(task.status === "completed"){
-             status = "uncompleted"
+        else if(NewStatus === "completed"){
+            updatedStatus = "uncompleted"
         }
-        const updatedData = { title, description, date ,status };
-        axios.patch(`http://localhost:5000/api/tasks/${_id}`, updatedData)
+        const updatedData = { title, description, date ,status : updatedStatus };
+        axios.patch(`/api/tasks/${_id}`, updatedData)
             .then(data => {
                 handleClose();
                 console.log(data.data);
@@ -145,10 +149,10 @@ const TaskDetails = () => {
             <h2>Task Details</h2>
             <div className='task-container'>
                 <div className='details-section'>
-                    <h4 className='task-title'> {title}</h4>
+                   <div className='taskk-title'> <h4 > {title}</h4></div>
                     <div className='description'>
                         <h3 className='field-title'>Description</h3>
-                        <p>{description}</p>
+                       <div> <p>{description}</p></div>
                     </div>
                     <div className='date'>
                         <h3 className='field-title'>Date : </h3>

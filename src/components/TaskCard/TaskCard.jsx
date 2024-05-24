@@ -36,13 +36,13 @@ const TaskCard = ({ task, handleRemaining }) => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-
+  
     const [updatedTask, setUpdatedTask] = useState(task)
 
 
     const navigate = useNavigate();
     const axios = useAxios();
-    
+
     const { _id, title, description, date, status } = updatedTask;
 
     const handleDelete = () => {
@@ -57,7 +57,7 @@ const TaskCard = ({ task, handleRemaining }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axios.delete(`http://localhost:5000/api/tasks/${_id}`)
+                axios.delete(`/api/tasks/${_id}`)
                     .then(data => {
                         console.log(data);
                         if (data.data.deletedCount > 0) {
@@ -80,9 +80,9 @@ const TaskCard = ({ task, handleRemaining }) => {
         const title = form.title.value;
         const description = form.description.value;
         const date = form.date.value;
-        const status = task?.status;
+        const status = updatedTask?.status;
         const updatedData = { title, description, date, status };
-        axios.patch(`http://localhost:5000/api/tasks/${_id}`, updatedData)
+        axios.patch(`/api/tasks/${_id}`, updatedData)
             .then(data => {
                 handleClose();
                 console.log(data.data);
@@ -109,14 +109,15 @@ const TaskCard = ({ task, handleRemaining }) => {
 
     }
     return (
-        <div  className={`task-card ${status === 'uncompleted' ? 'uncompleted' : ''}`}>
-           <Link to={`/tasks/${_id}`}>
-           <h4 >{title} </h4>
-            <p className='description'>
-                {description.slice(0, 60)}
-                {description.length > 60 ? '  ...' : null}</p>
-            <p className='task-date'>date : {date}</p>
-            <p className='status'>status : {status}</p>
+        <div className={`task-card ${status === 'uncompleted' ? 'uncompleted' : ''}`}>
+            <Link to={`/tasks/${_id}`}>
+                <h4 >{title} </h4>
+                <p className='description'>
+                    {description.slice(0, 60)}
+                    {description.length > 60 ? '  ...' : null}</p>
+                <p className='task-date'>date : {date}</p>
+                <p className='status'>status : {status}</p>
+            </Link>
             <div className='button-container'>
                 <Link to={`/tasks/${_id}`} className='details-btn'>View Details</Link>
                 <div className='btn-icon'>
@@ -161,7 +162,7 @@ const TaskCard = ({ task, handleRemaining }) => {
                     </form>
                 </Box>
             </Modal>
-           </Link>
+
         </div>
     );
 };
